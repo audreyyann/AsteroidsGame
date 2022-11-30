@@ -1,12 +1,17 @@
 //your variable declarations here
 Star[] starryNight = new Star[400];
 Spaceship bob;
+ArrayList <Asteroid> roidsList;
 public void setup() 
 {
   size(400, 400);
+  roidsList = new ArrayList <Asteroid>();
   bob = new Spaceship();
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i] = new Star();
+  }
+  for(int x = 0; x < 50; x++){
+    roidsList.add(new Asteroid());
   }
 }
 public void draw()
@@ -16,6 +21,10 @@ public void draw()
   bob.show();
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i].show();
+  }
+  for(int x = 0; x < 50; x++){
+     roidsList.get(x).show();
+     roidsList.get(x).move();
   }
 }
 
