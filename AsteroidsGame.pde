@@ -22,9 +22,14 @@ public void draw()
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i].show();
   }
-  for(int x = 0; x < 30; x++){
+  for(int x = 0; x < roidsList.size(); x++){
      roidsList.get(x).show();
      roidsList.get(x).move();
+  }
+  for(int y = 0; y < roidsList.size(); y++) {
+    if(dist((float)bob.getCenterX(), (float)bob.getCenterY(), (float)roidsList.get(y).getCenterX(), (float)roidsList.get(y).getCenterY()) < 10) {
+     roidsList.remove(y);
+    }
   }
 }
 
