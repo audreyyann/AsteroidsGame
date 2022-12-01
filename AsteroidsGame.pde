@@ -4,13 +4,13 @@ Spaceship bob;
 ArrayList <Asteroid> roidsList;
 public void setup() 
 {
-  size(400, 400);
+  size(700, 700);
   roidsList = new ArrayList <Asteroid>();
   bob = new Spaceship();
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i] = new Star();
   }
-  for(int x = 0; x < 50; x++){
+  for(int x = 0; x < 30; x++){
     roidsList.add(new Asteroid());
   }
 }
@@ -22,7 +22,7 @@ public void draw()
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i].show();
   }
-  for(int x = 0; x < 50; x++){
+  for(int x = 0; x < 30; x++){
      roidsList.get(x).show();
      roidsList.get(x).move();
   }
@@ -30,7 +30,7 @@ public void draw()
 
 public void keyPressed() {
   if(key == 'w'){
-    bob.accelerate(2);
+    bob.accelerate(1.5);
   }
   if(key == 'a'){
     bob.turn(-10);
