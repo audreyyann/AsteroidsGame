@@ -3,8 +3,8 @@ class Star{
   private double myX, myY;
   public Star() {
     myColor = color((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
-    myX = (int)(Math.random()*400);
-    myY = (int)(Math.random()*400);
+    myX = (int)(Math.random()*700);
+    myY = (int)(Math.random()*700);
     mySize = (int)(Math.random()*5);
   }
   public void show() {
