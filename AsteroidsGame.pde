@@ -29,6 +29,7 @@ public void draw()
   for(int y = 0; y < roidsList.size(); y++) {
     if(dist((float)bob.getCenterX(), (float)bob.getCenterY(), (float)roidsList.get(y).getCenterX(), (float)roidsList.get(y).getCenterY()) < 10) {
      roidsList.remove(y);
+     y--;
     }
   }
 }
