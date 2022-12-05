@@ -1,5 +1,5 @@
 class Asteroid extends Floater{
-  double speedOfRotation;
+  private double speedOfRotation;
   public Asteroid() {
     speedOfRotation = Math.random()*4-4;
     corners = 7;
