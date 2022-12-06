@@ -2,10 +2,12 @@
 Star[] starryNight = new Star[400];
 Spaceship bob;
 ArrayList <Asteroid> roidsList;
+ArrayList <Bullet> bulletList;
 public void setup() 
 {
   size(700, 700);
   roidsList = new ArrayList <Asteroid>();
+  bulletList = new ArrayList<Bullet>();
   bob = new Spaceship();
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i] = new Star();
@@ -32,6 +34,10 @@ public void draw()
      y--;
     }
   }
+  for(int z = 0; z < bulletList.size(); z++){
+    bulletList.get(z).show();
+    bulletList.get(z).move();
+  }
 }
 
 public void keyPressed() {
@@ -50,5 +56,8 @@ public void keyPressed() {
     bob.setCenterX((int)(Math.random()*700));
     bob.setCenterY((int)(Math.random()*700)); 
     bob.setPointDirection((int)(Math.random()*700));
+  }
+  if(key == 'q'){
+    bulletList.add(new Bullet(bob));
   }
 }
