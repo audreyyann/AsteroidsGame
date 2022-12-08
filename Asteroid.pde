@@ -1,60 +1,25 @@
-Star[] starryNight = new Star[400];
-Spaceship bob;
-ArrayList <Asteroid> roidsList;
-ArrayList <Bullet> bulletList;
-public void setup() 
-{
-  size(700, 700);
-  roidsList = new ArrayList <Asteroid>();
-  bulletList = new ArrayList<Bullet>();
-  bob = new Spaceship();
-  for(int i = 0; i < starryNight.length; i++){
-    starryNight[i] = new Star();
+class Asteroid extends Floater{
+  double speedOfRotation;
+  public Asteroid() {
+    speedOfRotation = Math.random()*4-4;
+    corners = 7;
+    xCorners = new int[]{9, 4, -6, -8, -4, 2, 6};
+    yCorners = new int[]{-3, -7, -2, 1, 5, 6, 4};
+    myColor = color(180, 194, 180);
+    myCenterX = Math.random()*700;
+    myCenterY = Math.random()*700;
+    myXspeed = Math.random()*2-1;
+    myYspeed = Math.random()*2-1;
+    myPointDirection = Math.random()*360;
   }
-  for(int x = 0; x < 30; x++){
-    roidsList.add(new Asteroid());
+  public void move() {
+    turn(speedOfRotation);
+    super.move();
   }
-}
-public void draw()
-{
-  background(0); 
-  bob.move();
-  bob.show();
-  for(int i = 0; i < starryNight.length; i++){
-    starryNight[i].show();
+  public double getCenterX() {
+    return myCenterX;
   }
-  for(int x = 0; x < roidsList.size(); x++){
-     roidsList.get(x).show();
-     roidsList.get(x).move();
-     if(dist((float)bob.getCenterX(), (float)bob.getCenterY(), (float)roidsList.get(x).getCenterX(), (float)roidsList.get(x).getCenterY()) < 10) {
-       roidsList.remove(x);
-    }
-  }
-  
-  for(int z = 0; z < bulletList.size(); z++){
-    bulletList.get(z).show();
-    bulletList.get(z).move();
-  }
-}
-
-public void keyPressed() {
-  if(key == 'w'){
-    bob.accelerate(1.5);
-  }
-  if(key == 'a'){
-    bob.turn(-10);
-  }
-  if(key == 'd'){
-    bob.turn(10);
-  }
-  if(key == 'h'){
-    bob.setXspeed(0);
-    bob.setYspeed(0);
-    bob.setCenterX((int)(Math.random()*700));
-    bob.setCenterY((int)(Math.random()*700)); 
-    bob.setPointDirection((int)(Math.random()*700));
-  }
-  if(key == 'q'){
-    bulletList.add(new Bullet(bob));
+  public double getCenterY() {
+    return myCenterY;
   }
 }
