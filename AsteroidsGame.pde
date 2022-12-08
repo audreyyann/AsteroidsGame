@@ -6,7 +6,7 @@ public void setup()
 {
   size(700, 700);
   roidsList = new ArrayList <Asteroid>();
-  bulletList = new ArrayList<Bullet>();
+  bulletList = new ArrayList <Bullet>();
   bob = new Spaceship();
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i] = new Star();
