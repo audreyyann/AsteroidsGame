@@ -5,8 +5,17 @@ class Bullet extends Floater {
     myXspeed = aShip.getXspeed();
     myYspeed = aShip.getYspeed();
     myPointDirection = aShip.getPointDirection();
+    accelerate(6);
+    myColor = color(252, 239, 93);
   }
   public void show(){
-    ellipse((float)myCenterX, (float)myCenterY, 5, 10);
+    fill(myColor);
+    ellipse((float)myCenterX, (float)myCenterY, 10, 10);
+  }
+  public double getCenterX(){
+    return myCenterX;
+  }
+  public double getCenterY(){
+    return myCenterY;
   }
 }
