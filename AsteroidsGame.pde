@@ -1,4 +1,3 @@
-//your variable declarations here
 Star[] starryNight = new Star[400];
 Spaceship bob;
 ArrayList <Asteroid> roidsList;
@@ -27,13 +26,11 @@ public void draw()
   for(int x = 0; x < roidsList.size(); x++){
      roidsList.get(x).show();
      roidsList.get(x).move();
-  }
-  for(int y = 0; y < roidsList.size(); y++) {
-    if(dist((float)bob.getCenterX(), (float)bob.getCenterY(), (float)roidsList.get(y).getCenterX(), (float)roidsList.get(y).getCenterY()) < 10) {
-     roidsList.remove(y);
-     y--;
+     if(dist((float)bob.getCenterX(), (float)bob.getCenterY(), (float)roidsList.get(x).getCenterX(), (float)roidsList.get(x).getCenterY()) < 10) {
+       roidsList.remove(x);
     }
   }
+  
   for(int z = 0; z < bulletList.size(); z++){
     bulletList.get(z).show();
     bulletList.get(z).move();
