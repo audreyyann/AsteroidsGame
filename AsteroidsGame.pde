@@ -5,8 +5,8 @@ ArrayList <Bullet> bulletList;
 public void setup() 
 {
   size(700, 700);
-  roidsList = new ArrayList <Asteroid>();
-  bulletList = new ArrayList <Bullet>();
+  ArrayList <Asteroid> roidsList = new ArrayList <Asteroid>();
+  ArrayList <Bullet> bulletList = new ArrayList <Bullet>();
   bob = new Spaceship();
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i] = new Star();
