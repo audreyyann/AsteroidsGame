@@ -11,6 +11,7 @@ public void setup()
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i] = new Star();
   }
+  //create 30 asteroids
   for(int x = 0; x < 30; x++){
     roidsList.add(new Asteroid());
   }
@@ -20,9 +21,12 @@ public void draw()
   background(0); 
   bob.move();
   bob.show();
+  //starry background
   for(int i = 0; i < starryNight.length; i++){
     starryNight[i].show();
   }
+  //make asteroids appear
+  //remove asteroid if collides with spaceship
   for(int x = 0; x < roidsList.size(); x++){
      roidsList.get(x).show();
      roidsList.get(x).move();
@@ -30,10 +34,24 @@ public void draw()
        roidsList.remove(x);
     }
   }
-  
+  //make bullets appear
   for(int z = 0; z < bulletList.size(); z++){
     bulletList.get(z).show();
     bulletList.get(z).move();
+    if((float)bulletList.get(z).getCenterX() > 697 || (float)bulletList.get(z).getCenterX() < 3|| (float)bulletList.get(z).getCenterY() > 697 || (float)bulletList.get(z).getCenterY() < 3){
+      bulletList.remove(z);
+      z--;
+    }
+  }
+  //checks if any bullet collides with any asteroid
+  for(int m = 0; m < bulletList.size(); m++){
+    for(int n = 0; n < roidsList.size(); n++){
+      if(dist((float)bulletList.get(m).getCenterX(), (float)bulletList.get(m).getCenterY(), (float)roidsList.get(n).getCenterX(), (float)roidsList.get(n).getCenterY()) < 10) {
+        bulletList.remove(m);
+        roidsList.remove(n);
+        break;
+      }
+    }
   }
 }
 
